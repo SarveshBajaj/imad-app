@@ -20,7 +20,7 @@ button.onclick = function(){
 
   //request object created
   var request = new XMLHttpRequest();
-  //make a request to counter endpoint
+  //capture response and store it in variable
   request.onreadystatechange = function(){
     if(request.readyState === XMLHttpRequest.DONE){
       //Taking action
@@ -31,7 +31,6 @@ button.onclick = function(){
       }
     }
   };
-  //capture response and store it in variable
 
   //render variable in correct span
 
@@ -39,3 +38,36 @@ button.onclick = function(){
   request.open('GET','http://localhost:8080/counter', true);
   request.send(null);
 };
+//submit name
+
+var submit = document.getElementById('submit_btn');
+submit.onclick = function(){
+  //make a request to server and the name
+  var request = new XMLHttpRequest();
+  //capture response and store it in variable
+  request.onreadystatechange = function(){
+    if(request.readyState === XMLHttpRequest.DONE){
+      //Taking action
+      if(request.status === 200){
+        var names = request.responseText;
+        names = JSON.parse(names);
+        var list ='';
+        for(var i= 0;i<names.length;i++){
+          list+= '<li>'+ names[i] +'</li>';
+        }
+        var ul = document.getElementById('namelist');
+        ul.innerHTML = list;
+      }
+    }
+  };
+
+  //render variable in correct span
+
+  //make the request
+  var nameInput = document.getElementById('name');
+  var name = nameInput.value;
+  request.open('GET','http://localhost:8080/submit-name/'+ name, true);
+  request.send(null);
+  //compare a list of names and render it on a list
+
+}
