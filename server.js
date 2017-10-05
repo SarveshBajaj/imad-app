@@ -75,7 +75,11 @@ function createTemplate(data){
               </ul>
               </div>
         </div>
+<<<<<<< Updated upstream
         <script type="text/javascript" src="/ui/main.js">
+=======
+        <script type="text/javascript" src="/ui/main1.js">
+>>>>>>> Stashed changes
         </script>
         </body>
     </html>
@@ -106,6 +110,13 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
+<<<<<<< Updated upstream
+=======
+app.get('/ui/main1.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'main1.js'));
+});
+
+>>>>>>> Stashed changes
 var names=[];
 app.get('/submit-name/:name',function(req, res){
   //get name from the request object
