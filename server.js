@@ -55,7 +55,28 @@ function createTemplate(data){
               <div>
                   ${content}
               </div>
+              <br>
+              <hr/>
+
+              <div>
+              <p>Provide us with valuable comments</p>
+              <br>
+              <br>
+              <input type = "text" id ='comment' placeholder="Give your comments"></input>
+              </div>
+              <br>
+              <div>
+              <input type = "submit" id ="submit_com" value="Submit Comment"></input>
+              </div>
+              <hr/>
+              <div>
+              <p><u><b>ALL COMMENTS</b></u></p>
+              <ul id ="com_sec">
+              </ul>
+              </div>
         </div>
+        <script type="text/javascript" src="/ui/main.js">
+        </script>
         </body>
     </html>
 `;
@@ -84,6 +105,7 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
+
 var names=[];
 app.get('/submit-name/:name',function(req, res){
   //get name from the request object
@@ -93,6 +115,16 @@ app.get('/submit-name/:name',function(req, res){
 
   res.send(JSON.stringify(names));
 });
+
+var commbox=[];
+app.get('/submit-comment/:comment',function(req, res){
+  //get name from the request object
+  var comment = req.params.comment;
+
+  commbox.push(comment);
+
+  res.send(JSON.stringify(commbox));
+});
 //app.get('/ui/madi.png', function (req, res) {
 //res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 //});
@@ -101,7 +133,7 @@ app.get('/submit-name/:name',function(req, res){
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
-var port = 8080;
+var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
