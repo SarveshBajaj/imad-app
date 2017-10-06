@@ -75,11 +75,7 @@ function createTemplate(data){
               </ul>
               </div>
         </div>
-<<<<<<< Updated upstream
-        <script type="text/javascript" src="/ui/main.js">
-=======
         <script type="text/javascript" src="/ui/main1.js">
->>>>>>> Stashed changes
         </script>
         </body>
     </html>
@@ -110,13 +106,10 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
-<<<<<<< Updated upstream
-=======
 app.get('/ui/main1.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main1.js'));
 });
 
->>>>>>> Stashed changes
 var names=[];
 app.get('/submit-name/:name',function(req, res){
   //get name from the request object
@@ -144,7 +137,7 @@ app.get('/submit-comment/:comment',function(req, res){
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
-var port = 80;
+var port = 8080;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
