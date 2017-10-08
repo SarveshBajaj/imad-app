@@ -64,6 +64,8 @@ submit.onclick = function(){
         }
         var ul = document.getElementById('namelist');
         ul.innerHTML = list;
+        var numberofnames = document.getElementById('numberofnames');
+        numberofnames.innerHTML = i.toString();
       }
     }
   };

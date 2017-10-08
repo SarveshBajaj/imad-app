@@ -1,6 +1,8 @@
 body {
     font-family: sans-serif;
     background-color: #f0f0f0;
+    background-image: url("https://i.pinimg.com/originals/c0/b6/95/c0b695ce284e713a53eebdc382b9db85.jpg");
+    background-size: ;
     margin-top: 75px;
 }
 
@@ -22,7 +24,7 @@ body {
 .container{
     max-width: 800px;
     margin : 0 auto;
-    color: black;
+    color: white;
     font-family:sans-serif;
     padding-top: 60px;
     padding-left : 20px;
